@@ -3,10 +3,12 @@ SHELL := /bin/bash
 
 CWD := $(shell cd -P -- '$(shell dirname -- "$0")' && pwd -P)
 VENV := $(CWD)/.venv
+ENV := $(CWD)/.env
 
 .PHONY: run
 run: docker-compose.yml
-	docker compose up -d && docker compose ps
+	@ if [ ! -f .env ]; then cp .env.base .env; fi; 
+	@ docker compose up -d && docker compose ps;
 
 .PHONY: stop
 stop: docker-compose.yml
