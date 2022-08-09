@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  prometheus:
+    container_name: "prometheus"
+    image: prom/prometheus:latest
+    volumes:
+      - "./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+
+networks:
+  prometheus-grafana-demo-network:
+    driver: bridge
