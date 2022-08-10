@@ -5,8 +5,10 @@ description = ""
 authors = ["Nick Marlou <nickmarlou@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.10"
+fastapi = "^0.79.0"
 prometheus-client = "^0.14.1"
+uvicorn = {extras = ["stardard"], version = "^0.18.2"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"
