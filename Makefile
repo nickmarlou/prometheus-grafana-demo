@@ -5,10 +5,10 @@ CWD := $(shell cd -P -- '$(shell dirname -- "$0")' && pwd -P)
 VENV := $(CWD)/.venv
 ENV := $(CWD)/.env
 
-.PHONY: run
-run: docker-compose.yml
+.PHONY: start
+start: docker-compose.yml
 	@ if [ ! -f .env ]; then cp .env.base .env; fi; 
-	@ docker compose up -d && docker compose ps;
+	@ docker compose build && docker compose up -d && docker compose ps;
 
 .PHONY: stop
 stop: docker-compose.yml
@@ -34,7 +34,7 @@ uninstall-poetry:
 
 .PHONY: venv-activate
 venv-activate:
-	cd ./app && poetry shell && poetry env info
+	cd ./app && poetry shell
 
 .PHONY: venv-deactivate
 venv-deactivate:
