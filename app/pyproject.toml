@@ -7,8 +7,13 @@ authors = ["Nick Marlou <nickmarlou@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.79.0"
-prometheus-client = "^0.14.1"
 uvicorn = {extras = ["stardard"], version = "^0.18.2"}
+prometheus-client = "^0.14.1"
+
+black = "^22.6.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+mypy = "^0.971"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"
